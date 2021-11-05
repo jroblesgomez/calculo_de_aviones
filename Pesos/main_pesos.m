@@ -15,6 +15,15 @@ n_pasajeros = 20;
 n_pilotos = 2;
 n_auxiliares = 2;
 
+% Consumo especifico
+SFC = 0;
+
+% Eficiencia aerodinamica
+LD = 10;
+
+% Tramos vuelo tipico (en horas)
+E = [1 1 1 1 1 1];
+
 % Estimacion de pesos -----------------------------------------------------
 %% Peso de la carga de pago
 % En este caso es una aeronave de transporte de pasajeros
@@ -25,18 +34,18 @@ W_crew = calc_W_crew(n_pilotos, n_auxiliares);
 
 %% Peso al despegue
 % Se debe iterar para obtener el peso al despegue
-
-W_TO_inic = 0; % Estimado a partir de aeronaves semejantes.
+MTOW = 8350; % Estimado a partir de aeronaves semejantes.
+W_TO_inic = MTOW*0.8; 
 
 % Peso en vacio inicial
 WE_WTO = calc_WE_WTO(W_TO_inic);
 
 % Peso del combustible
-WF_WTO = 0; % Pendiente
+WF_WTO = 0.3*W_TO_inic; % REVISAR
 
-% Iteracion
+% Iteracion !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 % Aqui hay que hacer un bucle
     W_TO = calc_W_TO(W_crew, W_PL, WE_WTO, WF_WTO);
     WE_WTO = calc_WE_WTO(W_TO);
-    WF_WTO = 0; % !!
+    WF_WTO = calc_W_F(W_TO, LD, SFC, E)/W_TO;
     
