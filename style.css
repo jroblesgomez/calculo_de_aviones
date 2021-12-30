@@ -17,11 +17,22 @@
 body {
     font-family:'Open Sans', sans-serif;
     font-size:14px;
-    background-color:color-white;
+    background-color:#63e03f;
 }
 
-.portada {
-  background-color:#63e03f;
+
+.portada img {
+
+  width: 30%;
+  height: auto;
+
+}
+
+.logo-general img {
+
+  width: 80%;
+  height: auto;
+
 }
 
 .nav a {
