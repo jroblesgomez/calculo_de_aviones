@@ -8,4 +8,4 @@
 
 -------------------------------------
 ## Descripción
-En este repositorio se recoge el código empleado para el diseño de una aeronave de transporte de 20 pasajeros.
+En este repositorio se recoge parte del código empleado para diseñar el AB22.
